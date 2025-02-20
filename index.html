@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evet Hayır Oyunu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            position: relative;
+        }
+        #container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        #evet {
+            background: #28a745;
+            color: white;
+        }
+        #evet:hover {
+            background: #218838;
+        }
+        #hayir {
+            background: #dc3545;
+            color: white;
+            position: absolute;
+        }
+        #popup {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        #popup.show {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Beni Affedecek Misin?</h1>
+        <button id="evet">Evet</button>
+        <button id="hayir">Hayır</button>
+    </div>
+    <div id="popup">
+        <h2>Teşekkür Ederim! 🙂</h2>
+    </div>
+    <script>
+        const hayirButon = document.getElementById("hayir");
+        const evetButon = document.getElementById("evet");
+        const popup = document.getElementById("popup");
+        
+        hayirButon.addEventListener("mouseover", function() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            hayirButon.style.left = `${x}px`;
+            hayirButon.style.top = `${y}px`;
+        });
+        
+        evetButon.addEventListener("click", function() {
+            popup.classList.add("show");
+        });
+    </script>
+</body>
+</html>
